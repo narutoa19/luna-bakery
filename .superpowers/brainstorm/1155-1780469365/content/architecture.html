@@ -1,0 +1,183 @@
+<h2>🏗️ 网站架构设计</h2>
+<p class="subtitle">鹿呐烘焙 — 前台展示 + 后台管理，双端架构</p>
+
+<div class="section">
+  <h3>📱 前台（客户看到的部分）</h3>
+  <div class="mockup" style="margin-bottom: 24px;">
+    <div class="mockup-header">页面结构与导航流程</div>
+    <div class="mockup-body">
+      <div style="display: flex; flex-direction: column; gap: 16px; font-family: system-ui, sans-serif;">
+
+        <!-- Homepage -->
+        <div style="background: #faf7f2; border: 1px solid #e8d5b0; border-radius: 8px; padding: 20px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+            <span style="background: #c4a882; color: white; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">首页</span>
+            <span style="color: #4a3728; font-weight: 600;">🏠 品牌门户</span>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 12px; color: #8b7355;">
+            <span>✨ 首屏大图 (Hero)</span>
+            <span>→</span>
+            <span>🔥 明星产品推荐</span>
+            <span>→</span>
+            <span>📖 品牌故事</span>
+            <span>→</span>
+            <span>📍 页脚联系</span>
+          </div>
+        </div>
+
+        <!-- Products -->
+        <div style="background: #faf7f2; border: 1px solid #e8d5b0; border-radius: 8px; padding: 20px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+            <span style="background: #c4a882; color: white; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">产品页</span>
+            <span style="color: #4a3728; font-weight: 600;">🎂 产品展示</span>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 12px; color: #8b7355;">
+            <span>分类筛选 (蛋糕/面包/甜点)</span>
+            <span>→</span>
+            <span>精美卡片列表</span>
+            <span>→</span>
+            <span>点击查看详情</span>
+            <span>→</span>
+            <span>一键下单</span>
+          </div>
+        </div>
+
+        <!-- Product Detail -->
+        <div style="background: #faf7f2; border: 1px solid #e8d5b0; border-radius: 8px; padding: 20px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+            <span style="background: #c4a882; color: white; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">详情页</span>
+            <span style="color: #4a3728; font-weight: 600;">🍰 产品详情</span>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 12px; color: #8b7355;">
+            <span>大图轮播</span>
+            <span>→</span>
+            <span>产品描述+规格</span>
+            <span>→</span>
+            <span>价格选项</span>
+            <span>→</span>
+            <span>加入购物车</span>
+          </div>
+        </div>
+
+        <!-- Order -->
+        <div style="background: #faf7f2; border: 1px solid #e8d5b0; border-radius: 8px; padding: 20px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+            <span style="background: #c4a882; color: white; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">下单页</span>
+            <span style="color: #4a3728; font-weight: 600;">🛒 下单结算</span>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 12px; color: #8b7355;">
+            <span>购物车清单</span>
+            <span>→</span>
+            <span>填写备注要求</span>
+            <span>→</span>
+            <span>选择支付方式</span>
+            <span>→</span>
+            <span>提交订单 ✓</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>⚙️ 后台（你使用的管理面板）</h3>
+  <div class="mockup">
+    <div class="mockup-header">管理后台功能模块</div>
+    <div class="mockup-body">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-family: system-ui, sans-serif;">
+
+        <div style="background: #fff; border: 1px solid #e8d5b0; border-radius: 8px; padding: 16px;">
+          <div style="font-weight: 600; color: #4a3728; margin-bottom: 6px;">📊 仪表盘</div>
+          <div style="font-size: 12px; color: #8b7355;">今日订单数、待处理提醒、热门产品排行</div>
+        </div>
+
+        <div style="background: #fff; border: 1px solid #e8d5b0; border-radius: 8px; padding: 16px;">
+          <div style="font-weight: 600; color: #4a3728; margin-bottom: 6px;">🍰 产品管理</div>
+          <div style="font-size: 12px; color: #8b7355;">添加/编辑/下架产品，上传图片，填写简介，一键发布</div>
+        </div>
+
+        <div style="background: #fff; border: 1px solid #e8d5b0; border-radius: 8px; padding: 16px;">
+          <div style="font-weight: 600; color: #4a3728; margin-bottom: 6px;">📋 订单管理</div>
+          <div style="font-size: 12px; color: #8b7355;">查看所有订单、状态标记（新/确认/完成）、客户备注高亮</div>
+        </div>
+
+        <div style="background: #fff; border: 1px solid #e8d5b0; border-radius: 8px; padding: 16px;">
+          <div style="font-weight: 600; color: #4a3728; margin-bottom: 6px;">🔔 通知设置</div>
+          <div style="font-size: 12px; color: #8b7355;">新订单微信/短信提醒、通知模板管理</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>🔗 核心用户流程</h3>
+  <div class="mockup">
+    <div class="mockup-header">从浏览到下单的完整路径</div>
+    <div class="mockup-body">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; padding: 20px 0; font-family: system-ui, sans-serif;">
+        <div style="background: #faf7f2; border: 2px solid #c4a882; border-radius: 12px; padding: 14px 18px; text-align: center;">
+          <div style="font-size: 20px;">🔗</div>
+          <div style="font-size: 12px; color: #4a3728; font-weight: 600;">微信打开</div>
+          <div style="font-size: 10px; color: #8b7355;">公众号菜单</div>
+        </div>
+        <div style="font-size: 20px; margin: 0 8px; color: #c4a882;">→</div>
+        <div style="background: #faf7f2; border: 2px solid #c4a882; border-radius: 12px; padding: 14px 18px; text-align: center;">
+          <div style="font-size: 20px;">👀</div>
+          <div style="font-size: 12px; color: #4a3728; font-weight: 600;">浏览产品</div>
+          <div style="font-size: 10px; color: #8b7355;">精美展示</div>
+        </div>
+        <div style="font-size: 20px; margin: 0 8px; color: #c4a882;">→</div>
+        <div style="background: #faf7f2; border: 2px solid #c4a882; border-radius: 12px; padding: 14px 18px; text-align: center;">
+          <div style="font-size: 20px;">🛒</div>
+          <div style="font-size: 12px; color: #4a3728; font-weight: 600;">加入购物车</div>
+          <div style="font-size: 10px; color: #8b7355;">选规格数量</div>
+        </div>
+        <div style="font-size: 20px; margin: 0 8px; color: #c4a882;">→</div>
+        <div style="background: #faf7f2; border: 2px solid #c4a882; border-radius: 12px; padding: 14px 18px; text-align: center;">
+          <div style="font-size: 20px;">✍️</div>
+          <div style="font-size: 12px; color: #4a3728; font-weight: 600;">填写要求</div>
+          <div style="font-size: 10px; color: #8b7355;">备注+定制</div>
+        </div>
+        <div style="font-size: 20px; margin: 0 8px; color: #c4a882;">→</div>
+        <div style="background: #c4a882; border: 2px solid #c4a882; border-radius: 12px; padding: 14px 18px; text-align: center;">
+          <div style="font-size: 20px;">✅</div>
+          <div style="font-size: 12px; color: white; font-weight: 600;">提交订单</div>
+          <div style="font-size: 10px; color: rgba(255,255,255,0.8);">后台通知</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>🔄 后台管理流程（你的日常操作）</h3>
+  <div class="mockup">
+    <div class="mockup-header">添加新产品：仅需 3 步</div>
+    <div class="mockup-body">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; padding: 20px 0; font-family: system-ui, sans-serif;">
+        <div style="background: #faf7f2; border: 2px solid #8b7355; border-radius: 12px; padding: 14px 18px; text-align: center;">
+          <div style="font-size: 20px;">📸</div>
+          <div style="font-size: 12px; color: #4a3728; font-weight: 600;">上传图片</div>
+          <div style="font-size: 10px; color: #8b7355;">手机拍照直接传</div>
+        </div>
+        <div style="font-size: 20px; margin: 0 8px; color: #8b7355;">→</div>
+        <div style="background: #faf7f2; border: 2px solid #8b7355; border-radius: 12px; padding: 14px 18px; text-align: center;">
+          <div style="font-size: 20px;">✏️</div>
+          <div style="font-size: 12px; color: #4a3728; font-weight: 600;">填写信息</div>
+          <div style="font-size: 10px; color: #8b7355;">名称+简介+价格</div>
+        </div>
+        <div style="font-size: 20px; margin: 0 8px; color: #8b7355;">→</div>
+        <div style="background: #8b7355; border: 2px solid #8b7355; border-radius: 12px; padding: 14px 18px; text-align: center;">
+          <div style="font-size: 20px;">🚀</div>
+          <div style="font-size: 12px; color: white; font-weight: 600;">一键发布</div>
+          <div style="font-size: 10px; color: rgba(255,255,255,0.8);">即刻上线</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

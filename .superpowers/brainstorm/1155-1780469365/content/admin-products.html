@@ -1,0 +1,208 @@
+<h2>🍰 产品管理 — 完整闭环</h2>
+<p class="subtitle">添加 · 编辑 · 删除 · 上下架 — 产品全生命周期管理</p>
+
+<div class="section">
+  <h3>📋 产品列表页 — 一览所有产品</h3>
+  <div class="mockup" style="max-width: 600px; margin: 0 auto;">
+    <div class="mockup-body">
+      <div style="padding: 20px; background: #faf7f2; font-family: 'PingFang SC', sans-serif;">
+
+        <!-- Top bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <div>
+            <div style="font-size: 14px; font-weight: 600; color: #4a3728;">🍰 产品管理</div>
+            <div style="font-size: 10px; color: #8b7355;">共 12 款在售</div>
+          </div>
+          <div style="background: #4a3728; color: white; padding: 8px 16px; border-radius: 20px; font-size: 10px; letter-spacing: 1px; cursor: pointer;">+ 新增产品</div>
+        </div>
+
+        <!-- Category filter -->
+        <div style="display: flex; gap: 6px; margin-bottom: 14px; font-size: 10px;">
+          <span style="background: #4a3728; color: white; padding: 4px 10px; border-radius: 12px;">全部</span>
+          <span style="background: white; color: #8b7355; padding: 4px 10px; border-radius: 12px; border: 1px solid #e8d5b0;">🎂 蛋糕</span>
+          <span style="background: white; color: #8b7355; padding: 4px 10px; border-radius: 12px; border: 1px solid #e8d5b0;">🥐 面包</span>
+          <span style="background: white; color: #8b7355; padding: 4px 10px; border-radius: 12px; border: 1px solid #e8d5b0;">🍪 饼干</span>
+        </div>
+
+        <!-- Product list -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+
+          <!-- Product row 1 - Active -->
+          <div style="display: flex; align-items: center; gap: 12px; background: white; border-radius: 10px; padding: 10px 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.02);">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #f5ede0, #ede0d0); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;">🍰</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-size: 11px; font-weight: 600; color: #4a3728;">云朵草莓蛋糕</div>
+              <div style="font-size: 9px; color: #8b7355;">🎂 蛋糕 · <span style="color: #a8c97f;">●</span> 在售</div>
+            </div>
+            <div style="font-size: 12px; font-weight: bold; color: #c4a882; flex-shrink: 0;">¥238</div>
+            <div style="display: flex; gap: 4px; flex-shrink: 0;">
+              <span style="padding: 4px 8px; border: 1px solid #e8d5b0; border-radius: 6px; font-size: 9px; color: #8b7355; cursor: pointer;">✏️</span>
+              <span style="padding: 4px 8px; border: 1px solid #e8d5b0; border-radius: 6px; font-size: 9px; color: #c4a882; cursor: pointer;">👁️</span>
+              <span style="padding: 4px 8px; border: 1px solid #e8bcb0; border-radius: 6px; font-size: 9px; color: #c48b7a; cursor: pointer;">🗑️</span>
+            </div>
+          </div>
+
+          <!-- Product row 2 - Active -->
+          <div style="display: flex; align-items: center; gap: 12px; background: white; border-radius: 10px; padding: 10px 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.02);">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #f5ede0, #ede0d0); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;">🥐</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-size: 11px; font-weight: 600; color: #4a3728;">鹿角可颂</div>
+              <div style="font-size: 9px; color: #8b7355;">🥐 面包 · <span style="color: #a8c97f;">●</span> 在售</div>
+            </div>
+            <div style="font-size: 12px; font-weight: bold; color: #c4a882; flex-shrink: 0;">¥28</div>
+            <div style="display: flex; gap: 4px; flex-shrink: 0;">
+              <span style="padding: 4px 8px; border: 1px solid #e8d5b0; border-radius: 6px; font-size: 9px; color: #8b7355; cursor: pointer;">✏️</span>
+              <span style="padding: 4px 8px; border: 1px solid #e8d5b0; border-radius: 6px; font-size: 9px; color: #c4a882; cursor: pointer;">👁️</span>
+              <span style="padding: 4px 8px; border: 1px solid #e8bcb0; border-radius: 6px; font-size: 9px; color: #c48b7a; cursor: pointer;">🗑️</span>
+            </div>
+          </div>
+
+          <!-- Product row 3 - Hidden/Off-shelf -->
+          <div style="display: flex; align-items: center; gap: 12px; background: rgba(0,0,0,0.01); border-radius: 10px; padding: 10px 12px; opacity: 0.5;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #f5ede0, #ede0d0); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;">🍞</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-size: 11px; font-weight: 600; color: #4a3728;">森林莓果吐司</div>
+              <div style="font-size: 9px; color: #8b7355;">🍞 面包 · <span style="color: #aaa;">●</span> 已下架</div>
+            </div>
+            <div style="font-size: 12px; text-decoration: line-through; color: #aaa; flex-shrink: 0;">¥42</div>
+            <div style="display: flex; gap: 4px; flex-shrink: 0;">
+              <span style="padding: 4px 8px; border: 1px solid #e8d5b0; border-radius: 6px; font-size: 9px; color: #8b7355; cursor: pointer;">✏️</span>
+              <span style="padding: 4px 8px; border: 1px solid #a8c97f; border-radius: 6px; font-size: 9px; color: #8b7355; cursor: pointer;">🔄</span>
+              <span style="padding: 4px 8px; border: 1px solid #e8bcb0; border-radius: 6px; font-size: 9px; color: #c48b7a; cursor: pointer;">🗑️</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="section">
+  <h3>✏️ 编辑产品 — 和添加同一套界面，预填数据</h3>
+  <div class="mockup" style="max-width: 450px; margin: 0 auto;">
+    <div class="mockup-header">点击 ✏️ 进入编辑模式——所有字段自动填入当前内容</div>
+    <div class="mockup-body">
+      <div style="padding: 20px; background: #faf7f2; font-family: 'PingFang SC', sans-serif;">
+
+        <div style="font-size: 13px; font-weight: 600; color: #4a3728; margin-bottom: 16px; letter-spacing: 1px;">← 编辑产品</div>
+
+        <!-- Image with replace hint -->
+        <div style="margin-bottom: 16px;">
+          <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-bottom: 6px;">📸 产品图片</div>
+          <div style="position: relative; display: inline-block;">
+            <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #f5ede0, #ede0d0); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 40px;">🍰</div>
+            <div style="position: absolute; bottom: 6px; right: 6px; background: rgba(74,55,40,0.7); color: white; padding: 3px 8px; border-radius: 10px; font-size: 8px; cursor: pointer;">更换</div>
+          </div>
+        </div>
+
+        <!-- Pre-filled form -->
+        <div style="margin-bottom: 12px;">
+          <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-bottom: 4px;">产品名称</div>
+          <input value="云朵草莓蛋糕" style="width: 100%; padding: 10px; border: 1px solid #c4a882; border-radius: 8px; font-size: 11px; background: white; color: #4a3728; box-sizing: border-box; font-family: 'PingFang SC', sans-serif;">
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+          <div style="flex: 1;">
+            <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-bottom: 4px;">分类</div>
+            <select style="width: 100%; padding: 10px; border: 1px solid #c4a882; border-radius: 8px; font-size: 11px; background: white; font-family: 'PingFang SC', sans-serif; color: #4a3728;">
+              <option selected>🎂 蛋糕</option>
+            </select>
+          </div>
+          <div style="flex: 1;">
+            <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-bottom: 4px;">价格 ¥</div>
+            <input value="238" style="width: 100%; padding: 10px; border: 1px solid #c4a882; border-radius: 8px; font-size: 11px; background: white; color: #4a3728; box-sizing: border-box; font-family: 'PingFang SC', sans-serif;">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 12px;">
+          <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-bottom: 4px;">产品简介</div>
+          <textarea style="width: 100%; height: 56px; padding: 10px; border: 1px solid #c4a882; border-radius: 8px; font-size: 11px; background: white; color: #4a3728; resize: none; box-sizing: border-box; font-family: 'PingFang SC', sans-serif;">新鲜草莓与轻盈奶油的完美邂逅。采用日本进口鲜奶油。</textarea>
+        </div>
+
+        <!-- Toggle: on/off shelf -->
+        <div style="display: flex; align-items: center; justify-content: space-between; background: white; border-radius: 8px; padding: 12px; margin-bottom: 20px; border: 1px solid #e8d5b0;">
+          <div>
+            <div style="font-size: 11px; font-weight: 600; color: #4a3728;">上架状态</div>
+            <div style="font-size: 9px; color: #8b7355;">关闭后前台不显示</div>
+          </div>
+          <div style="width: 44px; height: 24px; background: #a8c97f; border-radius: 12px; position: relative; cursor: pointer;">
+            <div style="position: absolute; right: 2px; top: 2px; width: 20px; height: 20px; background: white; border-radius: 50%; box-shadow: 0 1px 4px rgba(0,0,0,0.1);"></div>
+          </div>
+        </div>
+
+        <button style="width: 100%; padding: 14px; border: none; border-radius: 24px; background: #4a3728; color: #faf7f2; font-size: 12px; letter-spacing: 3px; font-family: 'PingFang SC', sans-serif;">💾 保存修改</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="section">
+  <h3>🗑️ 删除产品 — 二次确认，防止误操作</h3>
+  <div class="mockup" style="max-width: 380px; margin: 0 auto;">
+    <div class="mockup-body">
+      <div style="padding: 32px 24px; background: #faf7f2; text-align: center; font-family: 'PingFang SC', sans-serif;">
+
+        <div style="width: 48px; height: 48px; background: #fdf0ed; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 20px;">🗑️</div>
+
+        <div style="font-size: 14px; font-weight: 600; color: #4a3728; margin-bottom: 4px;">确认删除？</div>
+        <div style="font-size: 10px; color: #8b7355; margin-bottom: 16px;">云朵草莓蛋糕 将从产品列表中永久移除</div>
+
+        <div style="background: #fdf0ed; border-radius: 8px; padding: 10px; font-size: 10px; color: #c48b7a; margin-bottom: 20px;">
+          ⚠️ 删除后无法恢复，确定要继续吗？
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+          <button style="flex: 1; padding: 10px; border: 1px solid #e8d5b0; border-radius: 20px; background: white; color: #8b7355; font-size: 11px; letter-spacing: 1px; font-family: 'PingFang SC', sans-serif; cursor: pointer;">取消</button>
+          <button style="flex: 1; padding: 10px; border: none; border-radius: 20px; background: #c48b7a; color: white; font-size: 11px; letter-spacing: 1px; font-family: 'PingFang SC', sans-serif; cursor: pointer;">确认删除</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="section">
+  <h3>🔄 产品管理 — 完整操作矩阵</h3>
+  <div class="mockup">
+    <div class="mockup-body">
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; padding: 16px; text-align: center; font-family: 'PingFang SC', sans-serif;">
+
+        <div style="background: #faf7f2; border-radius: 8px; padding: 12px 8px;">
+          <div style="font-size: 18px;">➕</div>
+          <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-top: 4px;">新增</div>
+          <div style="font-size: 8px; color: #8b7355;">空白表单</div>
+        </div>
+
+        <div style="background: #faf7f2; border-radius: 8px; padding: 12px 8px;">
+          <div style="font-size: 18px;">✏️</div>
+          <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-top: 4px;">编辑</div>
+          <div style="font-size: 8px; color: #8b7355;">预填数据修改</div>
+        </div>
+
+        <div style="background: #faf7f2; border-radius: 8px; padding: 12px 8px;">
+          <div style="font-size: 18px;">👁️</div>
+          <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-top: 4px;">预览</div>
+          <div style="font-size: 8px; color: #8b7355;">前台效果</div>
+        </div>
+
+        <div style="background: #faf7f2; border-radius: 8px; padding: 12px 8px;">
+          <div style="font-size: 18px;">🔄</div>
+          <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-top: 4px;">上下架</div>
+          <div style="font-size: 8px; color: #8b7355;">开关切换</div>
+        </div>
+
+        <div style="background: #faf7f2; border-radius: 8px; padding: 12px 8px;">
+          <div style="font-size: 18px;">🗑️</div>
+          <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-top: 4px;">删除</div>
+          <div style="font-size: 8px; color: #8b7355;">二次确认</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

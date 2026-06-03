@@ -1,0 +1,181 @@
+<h2>🎨 首页优化 — 产品浏览交互</h2>
+<p class="subtitle">从"明星精选"一键丝滑展开到全部产品，不跳页、不破坏浏览节奏</p>
+
+<div class="split">
+
+  <!-- BEFORE: Compact -->
+  <div class="mockup">
+    <div class="mockup-header">状态 ① 首页 — 明星产品精选</div>
+    <div class="mockup-body">
+      <div style="max-width: 340px; margin: 0 auto; font-family: 'Georgia', 'Noto Serif SC', serif;">
+
+        <!-- Context: this is mid-page -->
+        <div style="padding: 32px 16px; background: #faf7f2;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <div style="font-size: 9px; letter-spacing: 4px; color: #c4a882; margin-bottom: 6px;">STAR SELECTION</div>
+            <div style="font-size: 18px; font-weight: bold; color: #4a3728; letter-spacing: 3px;">🔥 明星产品</div>
+          </div>
+
+          <!-- 3 featured cards in a clean grid -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+            <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.03);">
+              <div style="height: 100px; background: linear-gradient(135deg, #f5ede0, #ede0d0); display: flex; align-items: center; justify-content: center; font-size: 36px;">🍰</div>
+              <div style="padding: 10px;"><div style="font-size: 11px; font-weight: 600; color: #4a3728;">云朵草莓</div><div style="font-size: 12px; color: #c4a882; font-weight: bold;">¥238</div></div>
+            </div>
+            <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.03);">
+              <div style="height: 100px; background: linear-gradient(135deg, #f5ede0, #ede0d0); display: flex; align-items: center; justify-content: center; font-size: 36px;">🥐</div>
+              <div style="padding: 10px;"><div style="font-size: 11px; font-weight: 600; color: #4a3728;">鹿角可颂</div><div style="font-size: 12px; color: #c4a882; font-weight: bold;">¥28</div></div>
+            </div>
+            <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.03);">
+              <div style="height: 100px; background: linear-gradient(135deg, #f5ede0, #ede0d0); display: flex; align-items: center; justify-content: center; font-size: 36px;">🍞</div>
+              <div style="padding: 10px;"><div style="font-size: 11px; font-weight: 600; color: #4a3728;">森林吐司</div><div style="font-size: 12px; color: #c4a882; font-weight: bold;">¥42</div></div>
+            </div>
+            <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.03);">
+              <div style="height: 100px; background: linear-gradient(135deg, #f5ede0, #ede0d0); display: flex; align-items: center; justify-content: center; font-size: 36px;">🧁</div>
+              <div style="padding: 10px;"><div style="font-size: 11px; font-weight: 600; color: #4a3728;">鹿语泡芙</div><div style="font-size: 12px; color: #c4a882; font-weight: bold;">¥18</div></div>
+            </div>
+          </div>
+
+          <!-- THE BUTTON -->
+          <div style="text-align: center;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border: 1px solid #c4a882; border-radius: 24px; color: #8b7355; font-size: 12px; letter-spacing: 2px; font-family: 'PingFang SC', sans-serif; cursor: pointer; transition: all 0.3s;">
+              查看全部产品
+              <span style="font-size: 10px;">↓</span>
+            </div>
+            <div style="font-size: 9px; color: #c4a882; margin-top: 6px;">共 12 款美味等你发现</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AFTER: Expanded -->
+  <div class="mockup">
+    <div class="mockup-header">状态 ② 展开后 — 全部产品丝滑呈现</div>
+    <div class="mockup-body">
+      <div style="max-width: 340px; margin: 0 auto; font-family: 'Georgia', 'Noto Serif SC', serif;">
+
+        <div style="padding: 32px 16px; background: #faf7f2;">
+
+          <!-- Header with back -->
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #8b7355; font-family: 'PingFang SC', sans-serif; cursor: pointer;">
+              <span>←</span> <span>返回首页</span>
+            </div>
+            <div style="font-size: 16px; font-weight: bold; color: #4a3728; letter-spacing: 3px;">全部产品</div>
+            <div style="width: 50px;"></div>
+          </div>
+
+          <!-- Category pill filters -->
+          <div style="display: flex; gap: 8px; margin-bottom: 20px; justify-content: center; font-family: 'PingFang SC', sans-serif;">
+            <span style="background: #4a3728; color: white; padding: 5px 14px; border-radius: 16px; font-size: 10px;">全部</span>
+            <span style="background: white; color: #8b7355; padding: 5px 14px; border-radius: 16px; font-size: 10px; border: 1px solid #e8d5b0;">🎂 蛋糕</span>
+            <span style="background: white; color: #8b7355; padding: 5px 14px; border-radius: 16px; font-size: 10px; border: 1px solid #e8d5b0;">🥐 面包</span>
+            <span style="background: white; color: #8b7355; padding: 5px 14px; border-radius: 16px; font-size: 10px; border: 1px solid #e8d5b0;">🍪 饼干</span>
+          </div>
+
+          <!-- Full product grid -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.03);">
+              <div style="height: 100px; background: linear-gradient(135deg, #f5ede0, #ede0d0); display: flex; align-items: center; justify-content: center; font-size: 36px;">🍰</div>
+              <div style="padding: 10px;"><div style="font-size: 11px; font-weight: 600; color: #4a3728;">云朵草莓</div><div style="font-size: 12px; color: #c4a882; font-weight: bold;">¥238</div></div>
+            </div>
+            <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.03);">
+              <div style="height: 100px; background: linear-gradient(135deg, #f5ede0, #ede0d0); display: flex; align-items: center; justify-content: center; font-size: 36px;">🥐</div>
+              <div style="padding: 10px;"><div style="font-size: 11px; font-weight: 600; color: #4a3728;">鹿角可颂</div><div style="font-size: 12px; color: #c4a882; font-weight: bold;">¥28</div></div>
+            </div>
+            <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.03);">
+              <div style="height: 100px; background: linear-gradient(135deg, #f5ede0, #ede0d0); display: flex; align-items: center; justify-content: center; font-size: 36px;">🍞</div>
+              <div style="padding: 10px;"><div style="font-size: 11px; font-weight: 600; color: #4a3728;">森林吐司</div><div style="font-size: 12px; color: #c4a882; font-weight: bold;">¥42</div></div>
+            </div>
+            <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.03);">
+              <div style="height: 100px; background: linear-gradient(135deg, #f5ede0, #ede0d0); display: flex; align-items: center; justify-content: center; font-size: 36px;">🧁</div>
+              <div style="padding: 10px;"><div style="font-size: 11px; font-weight: 600; color: #4a3728;">鹿语泡芙</div><div style="font-size: 12px; color: #c4a882; font-weight: bold;">¥18</div></div>
+            </div>
+            <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.03);">
+              <div style="height: 100px; background: linear-gradient(135deg, #f5ede0, #ede0d0); display: flex; align-items: center; justify-content: center; font-size: 36px;">🍪</div>
+              <div style="padding: 10px;"><div style="font-size: 11px; font-weight: 600; color: #4a3728;">鹿印曲奇</div><div style="font-size: 12px; color: #c4a882; font-weight: bold;">¥68</div></div>
+            </div>
+            <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.03);">
+              <div style="height: 100px; background: linear-gradient(135deg, #f5ede0, #ede0d0); display: flex; align-items: center; justify-content: center; font-size: 36px;">🍮</div>
+              <div style="padding: 10px;"><div style="font-size: 11px; font-weight: 600; color: #4a3728;">焦糖布丁</div><div style="font-size: 12px; color: #c4a882; font-weight: bold;">¥22</div></div>
+            </div>
+          </div>
+
+          <!-- Collapse button -->
+          <div style="text-align: center; margin-top: 20px;">
+            <div style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 20px; color: #8b7355; font-size: 11px; letter-spacing: 2px; font-family: 'PingFang SC', sans-serif; cursor: pointer;">
+              <span>↑</span> 收起
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="section">
+  <h3>✨ 交互设计说明</h3>
+  <div class="mockup">
+    <div class="mockup-header">展开/收起动画流程</div>
+    <div class="mockup-body">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; padding: 16px; font-family: 'PingFang SC', sans-serif;">
+
+        <div style="text-align: center; padding: 16px; background: #faf7f2; border-radius: 10px; min-width: 100px;">
+          <div style="font-size: 24px; margin-bottom: 6px;">👆</div>
+          <div style="font-size: 11px; color: #4a3728; font-weight: 600;">点击"查看全部"</div>
+          <div style="font-size: 10px; color: #8b7355;">淡金描边按钮</div>
+        </div>
+
+        <div style="color: #c4a882; font-size: 18px;">→</div>
+
+        <div style="text-align: center; padding: 16px; background: #faf7f2; border-radius: 10px; min-width: 100px;">
+          <div style="font-size: 24px; margin-bottom: 6px;">📐</div>
+          <div style="font-size: 11px; color: #4a3728; font-weight: 600;">原地展开</div>
+          <div style="font-size: 10px; color: #8b7355;">页面平滑下推</div>
+        </div>
+
+        <div style="color: #c4a882; font-size: 18px;">→</div>
+
+        <div style="text-align: center; padding: 16px; background: #faf7f2; border-radius: 10px; min-width: 100px;">
+          <div style="font-size: 24px; margin-bottom: 6px;">🔍</div>
+          <div style="font-size: 11px; color: #4a3728; font-weight: 600;">分类筛选</div>
+          <div style="font-size: 10px; color: #8b7355;">胶囊标签切换</div>
+        </div>
+
+        <div style="color: #c4a882; font-size: 18px;">→</div>
+
+        <div style="text-align: center; padding: 16px; background: #faf7f2; border-radius: 10px; min-width: 100px;">
+          <div style="font-size: 24px; margin-bottom: 6px;">👈</div>
+          <div style="font-size: 11px; color: #4a3728; font-weight: 600;">随时返回</div>
+          <div style="font-size: 10px; color: #8b7355;">"←返回首页"或"收起"</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>🎯 为什么这样设计</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+    <div style="background: #faf7f2; border-radius: 8px; padding: 14px;">
+      <div style="font-weight: 600; color: #4a3728; font-size: 13px; margin-bottom: 4px;">🏠 不离开首页</div>
+      <div style="font-size: 11px; color: #8b7355;">展开是"生长"在首页内的，不是跳到一个新页面。品牌故事、页脚都还在下方。</div>
+    </div>
+    <div style="background: #faf7f2; border-radius: 8px; padding: 14px;">
+      <div style="font-weight: 600; color: #4a3728; font-size: 13px; margin-bottom: 4px;">🎬 丝滑过渡</div>
+      <div style="font-size: 11px; color: #8b7355;">使用CSS过渡动画，网格从精选4格平滑展开到完整列表，过程流畅自然。</div>
+    </div>
+    <div style="background: #faf7f2; border-radius: 8px; padding: 14px;">
+      <div style="font-weight: 600; color: #4a3728; font-size: 13px; margin-bottom: 4px;">🎯 分类即筛选</div>
+      <div style="font-size: 11px; color: #8b7355;">展开后顶部出现胶囊分类标签，点击即可筛选蛋糕/面包/饼干，所见即所得。</div>
+    </div>
+    <div style="background: #faf7f2; border-radius: 8px; padding: 14px;">
+      <div style="font-weight: 600; color: #4a3728; font-size: 13px; margin-bottom: 4px;">↩️ 双重返回</div>
+      <div style="font-size: 11px; color: #8b7355;">左上"←返回首页"和底部"收起"都能回到精选视图，照顾不同浏览习惯。</div>
+    </div>
+  </div>
+</div>
+

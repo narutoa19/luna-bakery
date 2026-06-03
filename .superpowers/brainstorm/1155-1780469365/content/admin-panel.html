@@ -1,0 +1,210 @@
+<h2>⚙️ 管理后台设计</h2>
+<p class="subtitle">简洁、高效、零学习成本 — 你的日常操作只需三步</p>
+
+<div class="section">
+  <h3>🔐 登录 — 极简入口</h3>
+  <div class="mockup" style="max-width: 400px; margin: 0 auto;">
+    <div class="mockup-body">
+      <div style="padding: 40px 28px; background: #faf7f2; text-align: center; font-family: 'Georgia', 'PingFang SC', sans-serif;">
+        <div style="font-size: 28px; margin-bottom: 8px;">🦌</div>
+        <div style="font-size: 18px; font-weight: bold; color: #4a3728; letter-spacing: 3px; margin-bottom: 4px;">鹿呐烘焙</div>
+        <div style="font-size: 10px; color: #c4a882; letter-spacing: 2px; margin-bottom: 28px;">管理后台</div>
+        <input placeholder="密码" type="password" style="width: 100%; padding: 12px; border: 1px solid #e8d5b0; border-radius: 8px; font-size: 12px; background: white; text-align: center; box-sizing: border-box; font-family: 'PingFang SC', sans-serif; margin-bottom: 12px;">
+        <button style="width: 100%; padding: 12px; border: none; border-radius: 8px; background: #4a3728; color: #faf7f2; font-size: 11px; letter-spacing: 3px; font-family: 'PingFang SC', sans-serif;">进入后台</button>
+        <div style="font-size: 9px; color: #c4a882; margin-top: 12px;">密码登录，简单安全</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>📊 仪表盘 — 一眼掌握全局</h3>
+  <div class="mockup">
+    <div class="mockup-body">
+      <div style="padding: 20px; background: #faf7f2; font-family: 'PingFang SC', sans-serif;">
+
+        <!-- Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+          <div>
+            <div style="font-size: 14px; font-weight: 600; color: #4a3728;">👋 下午好</div>
+            <div style="font-size: 10px; color: #8b7355;">鹿呐烘焙 · 管理后台</div>
+          </div>
+          <div style="background: white; border: 1px solid #e8d5b0; padding: 6px 12px; border-radius: 16px; font-size: 10px; color: #8b7355;">退出</div>
+        </div>
+
+        <!-- Stats cards -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 18px;">
+          <div style="background: white; border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 1px 8px rgba(0,0,0,0.02);">
+            <div style="font-size: 22px; font-weight: bold; color: #c4a882;">3</div>
+            <div style="font-size: 9px; color: #8b7355; margin-top: 4px;">🆕 新订单</div>
+          </div>
+          <div style="background: white; border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 1px 8px rgba(0,0,0,0.02);">
+            <div style="font-size: 22px; font-weight: bold; color: #4a3728;">12</div>
+            <div style="font-size: 9px; color: #8b7355; margin-top: 4px;">🍰 在售产品</div>
+          </div>
+          <div style="background: white; border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 1px 8px rgba(0,0,0,0.02);">
+            <div style="font-size: 22px; font-weight: bold; color: #4a3728;">¥1,860</div>
+            <div style="font-size: 9px; color: #8b7355; margin-top: 4px;">💰 今日收入</div>
+          </div>
+        </div>
+
+        <!-- Quick actions -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 18px;">
+          <div style="background: linear-gradient(135deg, #4a3728, #5d4a3a); border-radius: 10px; padding: 16px; color: white; cursor: pointer;">
+            <div style="font-size: 20px; margin-bottom: 4px;">🍰</div>
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 1px;">添加新产品</div>
+            <div style="font-size: 9px; opacity: 0.7; margin-top: 2px;">拍照→填信息→发布</div>
+          </div>
+          <div style="background: white; border: 1px solid #e8d5b0; border-radius: 10px; padding: 16px; cursor: pointer;">
+            <div style="font-size: 20px; margin-bottom: 4px;">📋</div>
+            <div style="font-size: 12px; font-weight: 600; color: #4a3728; letter-spacing: 1px;">查看订单</div>
+            <div style="font-size: 9px; color: #8b7355; margin-top: 2px;">管理所有订单</div>
+          </div>
+        </div>
+
+        <!-- Recent orders -->
+        <div>
+          <div style="font-size: 11px; font-weight: 600; color: #4a3728; letter-spacing: 1px; margin-bottom: 10px;">📌 最近订单</div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <div style="display: flex; align-items: center; gap: 10px; background: white; border-radius: 8px; padding: 10px 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.02);">
+              <div style="width: 6px; height: 6px; background: #e88b5a; border-radius: 50%; flex-shrink: 0;" title="新订单"></div>
+              <div style="flex: 1;">
+                <div style="font-size: 10px; font-weight: 600; color: #4a3728;">云朵草莓蛋糕 ×1</div>
+                <div style="font-size: 9px; color: #8b7355;">小鹿 · 138****6789 · 10分钟前</div>
+              </div>
+              <div style="font-size: 11px; font-weight: bold; color: #c4a882;">¥238</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; background: white; border-radius: 8px; padding: 10px 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.02);">
+              <div style="width: 6px; height: 6px; background: #e88b5a; border-radius: 50%; flex-shrink: 0;"></div>
+              <div style="flex: 1;">
+                <div style="font-size: 10px; font-weight: 600; color: #4a3728;">鹿角可颂 ×2 + 森林吐司 ×1</div>
+                <div style="font-size: 9px; color: #8b7355;">小王 · 186****1234 · 25分钟前</div>
+              </div>
+              <div style="font-size: 11px; font-weight: bold; color: #c4a882;">¥98</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; background: white; border-radius: 8px; padding: 10px 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.02);">
+              <div style="width: 6px; height: 6px; background: #a8c97f; border-radius: 50%; flex-shrink: 0;" title="已确认"></div>
+              <div style="flex: 1;">
+                <div style="font-size: 10px; font-weight: 600; color: #4a3728;">鹿印曲奇 ×1</div>
+                <div style="font-size: 9px; color: #8b7355;">阿明 · 139****5678 · 1小时前</div>
+              </div>
+              <div style="font-size: 10px; color: #a8c97f; font-weight: 600;">已确认</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>🍰 添加产品 — 全站最简单的一页</h3>
+  <div class="mockup">
+    <div class="mockup-header">这就是你说的"快速简单变成产品图和简介"</div>
+    <div class="mockup-body">
+      <div style="padding: 20px; background: #faf7f2; font-family: 'PingFang SC', sans-serif;">
+
+        <div style="font-size: 13px; font-weight: 600; color: #4a3728; margin-bottom: 16px; letter-spacing: 1px;">← 新增产品</div>
+
+        <!-- Image upload -->
+        <div style="margin-bottom: 16px;">
+          <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-bottom: 6px; letter-spacing: 1px;">📸 产品图片</div>
+          <div style="border: 2px dashed #e8d5b0; border-radius: 10px; padding: 30px; text-align: center; background: white; cursor: pointer;">
+            <div style="font-size: 28px; margin-bottom: 6px;">📷</div>
+            <div style="font-size: 10px; color: #8b7355;">点击上传或手机拍照</div>
+            <div style="font-size: 9px; color: #c4a882; margin-top: 2px;">支持 JPG/PNG，建议 800×800</div>
+          </div>
+        </div>
+
+        <!-- Product name -->
+        <div style="margin-bottom: 12px;">
+          <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-bottom: 4px; letter-spacing: 1px;">产品名称</div>
+          <input placeholder="如：云朵草莓蛋糕" style="width: 100%; padding: 10px; border: 1px solid #e8d5b0; border-radius: 8px; font-size: 11px; background: white; box-sizing: border-box; font-family: 'PingFang SC', sans-serif;">
+        </div>
+
+        <!-- Category + Price row -->
+        <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+          <div style="flex: 1;">
+            <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-bottom: 4px; letter-spacing: 1px;">分类</div>
+            <select style="width: 100%; padding: 10px; border: 1px solid #e8d5b0; border-radius: 8px; font-size: 11px; background: white; font-family: 'PingFang SC', sans-serif; color: #4a3728;">
+              <option>🎂 蛋糕</option>
+              <option>🥐 面包</option>
+              <option>🍪 饼干</option>
+              <option>🍮 甜点</option>
+              <option>☕ 饮品</option>
+            </select>
+          </div>
+          <div style="flex: 1;">
+            <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-bottom: 4px; letter-spacing: 1px;">价格 ¥</div>
+            <input placeholder="238" style="width: 100%; padding: 10px; border: 1px solid #e8d5b0; border-radius: 8px; font-size: 11px; background: white; box-sizing: border-box; font-family: 'PingFang SC', sans-serif;">
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div style="margin-bottom: 12px;">
+          <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-bottom: 4px; letter-spacing: 1px;">产品简介</div>
+          <textarea placeholder="简短介绍食材、口感、卖点..." style="width: 100%; height: 64px; padding: 10px; border: 1px solid #e8d5b0; border-radius: 8px; font-size: 11px; background: white; resize: none; box-sizing: border-box; font-family: 'PingFang SC', sans-serif;"></textarea>
+        </div>
+
+        <!-- Tags -->
+        <div style="margin-bottom: 20px;">
+          <div style="font-size: 10px; color: #4a3728; font-weight: 600; margin-bottom: 4px; letter-spacing: 1px;">标签（可选）</div>
+          <div style="display: flex; gap: 6px;">
+            <span style="padding: 4px 10px; border: 1px solid #c4a882; border-radius: 12px; font-size: 9px; color: #c4a882; background: rgba(196,168,130,0.05);">🔥 热销</span>
+            <span style="padding: 4px 10px; border: 1px solid #e8d5b0; border-radius: 12px; font-size: 9px; color: #8b7355;">🆕 新品</span>
+            <span style="padding: 4px 10px; border: 1px solid #e8d5b0; border-radius: 12px; font-size: 9px; color: #8b7355;">⭐ 推荐</span>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button style="width: 100%; padding: 14px; border: none; border-radius: 24px; background: #4a3728; color: #faf7f2; font-size: 12px; letter-spacing: 3px; font-family: 'PingFang SC', sans-serif;">🚀 立即发布</button>
+        <div style="text-align: center; font-size: 9px; color: #c4a882; margin-top: 8px;">发布后即刻在前台展示</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>📋 订单详情 — 客户备注一目了然</h3>
+  <div class="mockup">
+    <div class="mockup-body">
+      <div style="padding: 20px; background: #faf7f2; font-family: 'PingFang SC', sans-serif;">
+
+        <div style="font-size: 13px; font-weight: 600; color: #4a3728; margin-bottom: 16px; letter-spacing: 1px;">← 订单详情 LN20260603001</div>
+
+        <!-- Status bar -->
+        <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+          <span style="background: #f5f0e8; padding: 5px 12px; border-radius: 14px; font-size: 9px; color: #8b7355;">🆕 待确认</span>
+          <span style="background: white; padding: 5px 12px; border-radius: 14px; font-size: 9px; color: #c4a882; border: 1px solid #e8d5b0;">✅ 标记已确认</span>
+          <span style="background: white; padding: 5px 12px; border-radius: 14px; font-size: 9px; color: #c4a882; border: 1px solid #e8d5b0;">📦 标记已完成</span>
+        </div>
+
+        <!-- Customer info -->
+        <div style="background: white; border-radius: 10px; padding: 14px; margin-bottom: 10px; box-shadow: 0 1px 8px rgba(0,0,0,0.02);">
+          <div style="font-size: 9px; color: #c4a882; margin-bottom: 3px;">客户信息</div>
+          <div style="font-size: 11px; color: #4a3728;">👤 小鹿 · 📱 138****6789</div>
+          <div style="font-size: 10px; color: #8b7355; margin-top: 2px;">下单时间：6月3日 14:28</div>
+        </div>
+
+        <!-- Order items -->
+        <div style="background: white; border-radius: 10px; padding: 14px; margin-bottom: 10px; box-shadow: 0 1px 8px rgba(0,0,0,0.02);">
+          <div style="font-size: 9px; color: #c4a882; margin-bottom: 6px;">订购产品</div>
+          <div style="font-size: 10px; color: #4a3728; margin-bottom: 2px;">🍰 云朵草莓蛋糕 ×1 <span style="color: #c4a882; float: right;">¥238</span></div>
+          <div style="font-size: 9px; color: #8b7355;">6寸 · 2-3人</div>
+          <div style="border-top: 1px solid #e8d5b0; margin-top: 8px; padding-top: 8px; font-size: 11px; font-weight: bold; color: #4a3728;">合计 <span style="color: #c4a882; float: right;">¥238</span></div>
+        </div>
+
+        <!-- NOTES - highlighted! -->
+        <div style="background: linear-gradient(135deg, #faf5ee, #f5ede0); border: 1px solid #e8c896; border-left: 3px solid #c4a882; border-radius: 10px; padding: 14px; margin-bottom: 10px;">
+          <div style="font-size: 9px; color: #c4a882; margin-bottom: 4px;">✍️ 客户备注（核心信息）</div>
+          <div style="font-size: 12px; color: #4a3728; line-height: 1.6; font-family: 'Georgia', 'PingFang SC', sans-serif;">
+            "生日快乐小鹿！蛋糕上请写这个名字。不要放坚果，有朋友过敏。下午3点送到XX路128号。"
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
