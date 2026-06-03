@@ -13,11 +13,11 @@ export function Header() {
           <span className="text-base font-serif font-bold text-wood tracking-[3px]">鹿呐烘焙</span>
         </Link>
         <nav className="flex items-center gap-4">
-          <Link href="/cart" className="relative">
+          <Link href="/cart" className="relative" aria-label="购物车">
             <span className="text-xl">🛒</span>
             {totalItems > 0 && (
               <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-gold text-white text-[10px] rounded-full flex items-center justify-center font-sans">
-                {totalItems}
+                {totalItems > 99 ? "99+" : totalItems}
               </span>
             )}
           </Link>

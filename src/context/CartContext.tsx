@@ -27,14 +27,16 @@ export function useCart() {
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
-
-  useEffect(() => {
+  const [items, setItems] = useState<CartItem[]>(() => {
+    if (typeof window === "undefined") return [];
     try {
       const saved = localStorage.getItem("luna-cart");
-      if (saved) setItems(JSON.parse(saved));
-    } catch {}
-  }, []);
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      console.warn("Failed to read luna-cart from localStorage:", e);
+      return [];
+    }
+  });
 
   useEffect(() => {
     localStorage.setItem("luna-cart", JSON.stringify(items));

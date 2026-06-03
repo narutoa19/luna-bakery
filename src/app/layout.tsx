@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { CartProvider } from "@/context/CartContext";
 import { ToastProvider } from "@/components/ui/Toast";
 import { Header } from "@/components/layout/Header";
@@ -8,7 +8,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "鹿呐烘焙",
   description: "用鹿的灵韵，焙出生活的甜",
-  viewport: "width=device-width, initial-scale=1, viewport-fit=cover",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
