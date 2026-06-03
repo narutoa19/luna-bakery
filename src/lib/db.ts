@@ -1,5 +1,6 @@
 import { supabase } from "./supabase";
 import { Product, ProductCategory } from "@/types";
+import { generateOrderId } from "./utils";
 
 // -- Public Read --
 
@@ -36,4 +37,27 @@ export async function getProductById(id: string): Promise<Product | null> {
     .single();
   if (error) return null;
   return data as Product;
+}
+
+export async function createOrder(data: {
+  customer_name: string;
+  customer_phone: string;
+  notes: string;
+  items: { product_id: string; name: string; price: number; quantity: number; size?: string }[];
+  total_amount: number;
+}): Promise<{ id: string }> {
+  const id = generateOrderId();
+  const { error } = await supabase
+    .from("orders")
+    .insert({
+      id,
+      customer_name: data.customer_name,
+      customer_phone: data.customer_phone,
+      notes: data.notes,
+      items: JSON.stringify(data.items),
+      total_amount: data.total_amount,
+      status: "pending",
+    });
+  if (error) throw error;
+  return { id };
 }
