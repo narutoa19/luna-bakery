@@ -28,17 +28,19 @@ Input.displayName = "Input";
 
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
+  error?: string;
 }
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ label, className, ...props }, ref) => (
+  ({ label, error, className, ...props }, ref) => (
     <div className="w-full">
       {label && (
         <label className="block text-xs text-wood font-semibold tracking-wider mb-1.5">
           {label}
         </label>
       )}
-      <textarea ref={ref} className={cn("input-field resize-none", className)} {...props} />
+      <textarea ref={ref} className={cn("input-field resize-none", error && "border-red-300", className)} {...props} />
+      {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
     </div>
   )
 );
