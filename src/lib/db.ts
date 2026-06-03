@@ -1,5 +1,5 @@
-import { supabase } from "./supabase";
-import { Product, ProductCategory } from "@/types";
+import { supabase, supabaseAdmin } from "./supabase";
+import { Product, ProductCategory, OrderStatus, Order } from "@/types";
 import { generateOrderId } from "./utils";
 
 // -- Public Read --
@@ -60,4 +60,98 @@ export async function createOrder(data: {
     });
   if (error) throw error;
   return { id };
+}
+
+// -- Admin Queries --
+
+export async function getAdminProducts(): Promise<Product[]> {
+  const { data, error } = await supabaseAdmin
+    .from("products")
+    .select("*")
+    .order("created_at", { ascending: false });
+  if (error) throw error;
+  return data as Product[];
+}
+
+export async function getAdminOrders(): Promise<Order[]> {
+  const { data, error } = await supabaseAdmin
+    .from("orders")
+    .select("*")
+    .order("created_at", { ascending: false });
+  if (error) throw error;
+  return data as Order[];
+}
+
+export async function getAdminOrderById(id: string): Promise<Order | null> {
+  const { data, error } = await supabaseAdmin
+    .from("orders")
+    .select("*")
+    .eq("id", id)
+    .single();
+  if (error) return null;
+  return data as Order;
+}
+
+export async function updateOrderStatus(id: string, status: OrderStatus): Promise<void> {
+  const { error } = await supabaseAdmin
+    .from("orders")
+    .update({ status })
+    .eq("id", id);
+  if (error) throw error;
+}
+
+export async function createProduct(product: Omit<Product, "id" | "created_at">): Promise<string> {
+  const { data, error } = await supabaseAdmin
+    .from("products")
+    .insert(product)
+    .select("id")
+    .single();
+  if (error) throw error;
+  return data.id;
+}
+
+export async function updateProduct(id: string, updates: Partial<Product>): Promise<void> {
+  const { error } = await supabaseAdmin
+    .from("products")
+    .update(updates)
+    .eq("id", id);
+  if (error) throw error;
+}
+
+export async function deleteProduct(id: string): Promise<void> {
+  const { error } = await supabaseAdmin
+    .from("products")
+    .delete()
+    .eq("id", id);
+  if (error) throw error;
+}
+
+export async function getDashboardStats(): Promise<{
+  newOrders: number;
+  activeProducts: number;
+  todayRevenue: number;
+  recentOrders: Order[];
+}> {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const [ordersResult, productsResult] = await Promise.all([
+    supabaseAdmin.from("orders").select("*").order("created_at", { ascending: false }),
+    supabaseAdmin.from("products").select("*").eq("is_active", true),
+  ]);
+
+  const orders = (ordersResult.data || []) as Order[];
+  const activeProducts = (productsResult.data || []).length;
+
+  const newOrders = orders.filter((o) => o.status === "pending").length;
+  const todayRevenue = orders
+    .filter((o) => o.status !== "pending" && new Date(o.created_at) >= today)
+    .reduce((sum, o) => sum + o.total_amount, 0);
+
+  return {
+    newOrders,
+    activeProducts,
+    todayRevenue,
+    recentOrders: orders.slice(0, 5),
+  };
 }
