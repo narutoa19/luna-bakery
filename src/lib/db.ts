@@ -6,11 +6,7 @@ import { generateOrderId } from "./utils";
 // Detect if Supabase is configured (not a placeholder)
 // ============================================================
 
-const IS_REAL_SUPABASE =
-  !process.env.NEXT_PUBLIC_DEMO_MODE &&
-  process.env.NEXT_PUBLIC_SUPABASE_URL &&
-  !process.env.NEXT_PUBLIC_SUPABASE_URL.includes("placeholder") &&
-  !process.env.NEXT_PUBLIC_SUPABASE_URL.includes("your-project");
+const IS_REAL_SUPABASE = true;
 
 // ============================================================
 // In-memory mock data (used when Supabase is not configured)
