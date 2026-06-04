@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { getProductById } from "@/lib/db";
 import { ProductDetailClient } from "./client";
 
+export const dynamic = "force-dynamic";
+
 interface Props {
   params: { id: string };
 }
