@@ -18,7 +18,10 @@ export function ImageCarousel({ images, category, productName }: Props) {
     <div>
       <div className="relative w-full aspect-square bg-gradient-to-br from-cream-100 to-cream-200 flex items-center justify-center overflow-hidden">
         {hasImages ? (
-          <img src={images[current]} alt={productName} className="w-full h-full object-cover" />
+          <>
+            <img src={images[current]} alt={productName} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+            <span className="text-7xl absolute inset-0 flex items-center justify-center pointer-events-none">{CATEGORY_ICONS[category]}</span>
+          </>
         ) : (
           <span className="text-7xl">{CATEGORY_ICONS[category]}</span>
         )}
