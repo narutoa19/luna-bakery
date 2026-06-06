@@ -9,6 +9,20 @@ interface Props {
   onStatusFilterChange: (s: OrderStatus | null) => void;
 }
 
+// Parse items if they come back as a JSON string (defense-in-depth)
+function safeItems(order: Order): Array<{ name: string; product_id?: string; price?: number; quantity?: number; size?: string }> {
+  try {
+    const items = (order as unknown as Record<string, unknown>).items;
+    if (typeof items === "string") {
+      return JSON.parse(items);
+    }
+    if (Array.isArray(items)) {
+      return items;
+    }
+  } catch {}
+  return [];
+}
+
 const STATUS_LABELS: Record<OrderStatus, string> = {
   pending: "待确认",
   confirmed: "已确认",
@@ -58,7 +72,7 @@ export function OrderList({ orders, onSelect, statusFilter, onStatusFilterChange
               </span>
             </div>
             <div className="text-xs font-semibold text-wood mb-1">
-              {order.items.map((i) => `${i.name} ×${i.quantity}`).join("、")}
+              {safeItems(order).map((i) => `${i.name} ×${i.quantity}`).join("、")}
             </div>
             <div className="flex items-center justify-between text-[10px] text-wood-light">
               <span>{order.customer_name} · {order.customer_phone.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2")}</span>

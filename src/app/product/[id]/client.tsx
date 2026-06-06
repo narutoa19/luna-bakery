@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Product, CATEGORY_ICONS } from "@/types";
 import { formatPrice } from "@/lib/utils";
 import { useCart } from "@/context/CartContext";
@@ -23,6 +24,7 @@ const CAKE_SIZES = [
 export function ProductDetailClient({ product }: Props) {
   const { addItem } = useCart();
   const { toast } = useToast();
+  const router = useRouter();
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("6寸");
 
@@ -46,7 +48,11 @@ export function ProductDetailClient({ product }: Props) {
       </div>
 
       {/* Image carousel */}
-      <ImageCarousel images={product.images} category={product.category} productName={product.name} />
+      <ImageCarousel
+        images={product.images?.length > 0 ? product.images : (product.image_url ? [product.image_url] : [])}
+        category={product.category}
+        productName={product.name}
+      />
 
       {/* Product info */}
       <div className="px-4 py-6 space-y-4">
@@ -71,7 +77,7 @@ export function ProductDetailClient({ product }: Props) {
           {hasSizes && currentPrice !== product.price && (
             <>
               <span className="text-xs text-wood-light line-through">{formatPrice(product.price)}</span>
-              <span className="text-[10px] text-white bg-gold px-1.5 py-0.5 rounded">8折</span>
+              <span className="text-[10px] text-white bg-gold px-1.5 py-0.5 rounded">大尺寸</span>
             </>
           )}
         </div>
@@ -127,7 +133,7 @@ export function ProductDetailClient({ product }: Props) {
           <Button
             variant="primary"
             className="flex-[1.5]"
-            onClick={() => { handleAddToCart(); window.location.href = "/cart"; }}
+            onClick={() => { handleAddToCart(); router.push("/cart"); }}
           >
             立即购买
           </Button>

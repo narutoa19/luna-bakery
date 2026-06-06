@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Product, ProductCategory, CATEGORIES, CATEGORY_ICONS } from "@/types";
+import { formatPrice } from "@/lib/utils";
 import { ProductCard } from "@/components/product/ProductCard";
 
 interface Props {
@@ -30,7 +31,7 @@ export function ExpandableProducts({ products }: Props) {
                 </div>
                 <div className="mt-2">
                   <div className="font-serif text-sm font-semibold text-wood">{p.name}</div>
-                  <div className="text-xs text-gold font-bold">¥{p.price}</div>
+                  <div className="text-xs text-gold font-bold">{formatPrice(p.price)}</div>
                 </div>
               </div>
             ))}

@@ -6,7 +6,7 @@ import { ProductForm, ProductFormData } from "@/components/admin/ProductForm";
 import { DeleteConfirmModal } from "@/components/admin/DeleteConfirmModal";
 import { CategoryFilter } from "@/components/admin/CategoryFilter";
 import { Button } from "@/components/ui/Button";
-import { ToastProvider, useToast } from "@/components/ui/Toast";
+import { useToast } from "@/components/ui/Toast";
 
 function ProductsPageInner() {
   const { toast } = useToast();
@@ -87,12 +87,16 @@ function ProductsPageInner() {
 
   const handleToggleActive = async (product: Product) => {
     const token = localStorage.getItem("luna-admin-token");
-    await fetch(`/api/admin/products/${product.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ is_active: !product.is_active }),
-    });
-    fetchProducts();
+    try {
+      await fetch(`/api/admin/products/${product.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ is_active: !product.is_active }),
+      });
+      fetchProducts();
+    } catch {
+      toast("操作失败", "error");
+    }
   };
 
   if (showForm || editingProduct) {
@@ -144,9 +148,5 @@ function ProductsPageInner() {
 }
 
 export default function ProductsPage() {
-  return (
-    <ToastProvider>
-      <ProductsPageInner />
-    </ToastProvider>
-  );
+  return <ProductsPageInner />;
 }

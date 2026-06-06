@@ -28,13 +28,13 @@ export function ProductList({ products, onEdit, onDelete, onToggleActive }: Prop
             <div className="text-xs font-semibold text-wood truncate">{p.name}</div>
             <div className="text-[10px] text-wood-light">
               {CATEGORY_ICONS[p.category]} {p.category}
-              <span className={`ml-2 ${p.is_active ? "text-green-600" : "text-gray-400"}`}>
+              <span className={`ml-2 ${p.is_active ? "text-green-600" : "text-wood-light/50"}`}>
                 {p.is_active ? "● 在售" : "● 已下架"}
               </span>
             </div>
           </div>
 
-          <div className={`text-xs font-bold flex-shrink-0 ${p.is_active ? "text-gold" : "text-gray-400 line-through"}`}>
+          <div className={`text-xs font-bold flex-shrink-0 ${p.is_active ? "text-gold" : "text-wood-light/50 line-through"}`}>
             {formatPrice(p.price)}
           </div>
 

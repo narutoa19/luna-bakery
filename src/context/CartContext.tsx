@@ -7,8 +7,8 @@ interface CartContextValue {
   totalItems: number;
   totalAmount: number;
   addItem: (product: Product, quantity?: number, size?: string) => void;
-  removeItem: (productId: string) => void;
-  updateQuantity: (productId: string, quantity: number) => void;
+  removeItem: (productId: string, size?: string) => void;
+  updateQuantity: (productId: string, quantity: number, size?: string) => void;
   clearCart: () => void;
 }
 
@@ -26,14 +26,25 @@ export function useCart() {
   return useContext(CartContext);
 }
 
+// Size surcharge lookup
+const CAKE_SIZE_SURCHARGES: Record<string, number> = {
+  "6寸": 0,
+  "8寸": 100,
+  "10寸": 230,
+};
+
+function getSizePrice(basePrice: number, size?: string): number {
+  if (!size) return basePrice;
+  return basePrice + (CAKE_SIZE_SURCHARGES[size] || 0);
+}
+
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>(() => {
     if (typeof window === "undefined") return [];
     try {
       const saved = localStorage.getItem("luna-cart");
       return saved ? JSON.parse(saved) : [];
-    } catch (e) {
-      console.warn("Failed to read luna-cart from localStorage:", e);
+    } catch {
       return [];
     }
   });
@@ -44,7 +55,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const addItem = useCallback((product: Product, quantity = 1, size?: string) => {
     setItems((prev) => {
-      const existing = prev.find((i) => i.product.id === product.id && i.size === size);
+      const existing = prev.find(
+        (i) => i.product.id === product.id && i.size === size
+      );
       if (existing) {
         return prev.map((i) =>
           i.product.id === product.id && i.size === size
@@ -56,29 +69,49 @@ export function CartProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  const removeItem = useCallback((productId: string) => {
-    setItems((prev) => prev.filter((i) => i.product.id !== productId));
-  }, []);
-
-  const updateQuantity = useCallback((productId: string, quantity: number) => {
-    if (quantity <= 0) {
-      setItems((prev) => prev.filter((i) => i.product.id !== productId));
-      return;
-    }
+  const removeItem = useCallback((productId: string, size?: string) => {
     setItems((prev) =>
-      prev.map((i) => (i.product.id === productId ? { ...i, quantity } : i))
+      prev.filter(
+        (i) => !(i.product.id === productId && (size === undefined || i.size === size))
+      )
     );
   }, []);
+
+  const updateQuantity = useCallback(
+    (productId: string, quantity: number, size?: string) => {
+      if (quantity <= 0) {
+        setItems((prev) =>
+          prev.filter(
+            (i) => !(i.product.id === productId && (size === undefined || i.size === size))
+          )
+        );
+        return;
+      }
+      setItems((prev) =>
+        prev.map((i) =>
+          i.product.id === productId && (size === undefined || i.size === size)
+            ? { ...i, quantity }
+            : i
+        )
+      );
+    },
+    []
+  );
 
   const clearCart = useCallback(() => {
     setItems([]);
   }, []);
 
   const totalItems = items.reduce((sum, i) => sum + i.quantity, 0);
-  const totalAmount = items.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
+  const totalAmount = items.reduce(
+    (sum, i) => sum + getSizePrice(i.product.price, i.size) * i.quantity,
+    0
+  );
 
   return (
-    <CartContext.Provider value={{ items, totalItems, totalAmount, addItem, removeItem, updateQuantity, clearCart }}>
+    <CartContext.Provider
+      value={{ items, totalItems, totalAmount, addItem, removeItem, updateQuantity, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );

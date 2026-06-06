@@ -1,4 +1,4 @@
-import { supabase, supabaseAdmin } from "./supabase";
+import { supabaseAdmin } from "./supabase";
 import { Product, ProductCategory, OrderStatus, Order } from "@/types";
 import { generateOrderId } from "./utils";
 
@@ -190,27 +190,27 @@ let mockOrders = [...MOCK_ORDERS];
 let mockIdCounter = MOCK_PRODUCTS.length + 1;
 
 // ============================================================
+// Helpers
+// ============================================================
+
+function parseOrderItems(row: Record<string, unknown>): Order {
+  if (typeof row.items === "string") {
+    try {
+      return { ...row, items: JSON.parse(row.items) } as unknown as Order;
+    } catch {
+      return { ...row, items: [] } as unknown as Order;
+    }
+  }
+  return row as unknown as Order;
+}
+
+// ============================================================
 // Public Read
 // ============================================================
 
-export async function getFeaturedProducts(): Promise<Product[]> {
-  if (IS_REAL_SUPABASE) {
-    const { data, error } = await supabase
-      .from("products")
-      .select("*")
-      .eq("is_active", true)
-      .eq("is_featured", true)
-      .order("created_at", { ascending: false })
-      .limit(4);
-    if (error) throw error;
-    return data as Product[];
-  }
-  return mockProducts.filter((p) => p.is_active && p.is_featured).slice(0, 4);
-}
-
 export async function getAllActiveProducts(category?: ProductCategory): Promise<Product[]> {
   if (IS_REAL_SUPABASE) {
-    let query = supabase
+    let query = supabaseAdmin
       .from("products")
       .select("*")
       .eq("is_active", true)
@@ -226,7 +226,7 @@ export async function getAllActiveProducts(category?: ProductCategory): Promise<
 
 export async function getProductById(id: string): Promise<Product | null> {
   if (IS_REAL_SUPABASE) {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from("products")
       .select("*")
       .eq("id", id)
@@ -247,7 +247,7 @@ export async function createOrder(data: {
 }): Promise<{ id: string }> {
   if (IS_REAL_SUPABASE) {
     const id = generateOrderId();
-    const { error } = await supabase
+    const { error } = await supabaseAdmin
       .from("orders")
       .insert({
         id,
@@ -305,7 +305,7 @@ export async function getAdminOrders(): Promise<Order[]> {
       .select("*")
       .order("created_at", { ascending: false });
     if (error) throw error;
-    return data as Order[];
+    return (data || []).map(parseOrderItems);
   }
   return [...mockOrders];
 }
@@ -317,8 +317,8 @@ export async function getAdminOrderById(id: string): Promise<Order | null> {
       .select("*")
       .eq("id", id)
       .single();
-    if (error) return null;
-    return data as Order;
+    if (error || !data) return null;
+    return parseOrderItems(data);
   }
   return mockOrders.find((o) => o.id === id) ?? null;
 }
@@ -394,7 +394,7 @@ export async function getDashboardStats(): Promise<{
       supabaseAdmin.from("products").select("*").eq("is_active", true),
     ]);
 
-    const orders = (ordersResult.data || []) as Order[];
+    const orders = (ordersResult.data || []).map(parseOrderItems);
     const activeProducts = (productsResult.data || []).length;
 
     const newOrders = orders.filter((o) => o.status === "pending").length;

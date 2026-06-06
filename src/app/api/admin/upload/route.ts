@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyToken } from "@/lib/auth";
 
 const SUPABASE_STORAGE_URL =
-  "https://pigdhfqvimaggvaovqmi.supabase.co/storage/v1/object";
+  `${process.env.NEXT_PUBLIC_SUPABASE_URL!}/storage/v1/object`;
 const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
 export async function POST(request: NextRequest) {

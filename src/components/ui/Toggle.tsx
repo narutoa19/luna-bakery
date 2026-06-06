@@ -19,7 +19,7 @@ export function Toggle({ checked, onChange, disabled, "aria-label": ariaLabel }:
       onClick={() => onChange(!checked)}
       className={cn(
         "relative inline-flex h-6 w-11 items-center rounded-full transition-colors",
-        checked ? "bg-gold" : "bg-gray-300",
+        checked ? "bg-gold" : "bg-cream-200",
         disabled && "opacity-50 cursor-not-allowed"
       )}
     >

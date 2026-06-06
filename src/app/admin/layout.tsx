@@ -15,6 +15,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const pathname = usePathname();
   const [authed, setAuthed] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [authFailed, setAuthFailed] = useState(false);
 
   const isLoginPage = pathname === "/admin/login";
 
@@ -25,12 +26,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     }
     const token = localStorage.getItem("luna-admin-token");
     if (!token) {
-      router.push("/admin/login");
+      setAuthFailed(true);
+      setLoading(false);
     } else {
       setAuthed(true);
+      setLoading(false);
     }
-    setLoading(false);
-  }, [isLoginPage, router]);
+  }, [isLoginPage]);
 
   const handleLogout = () => {
     localStorage.removeItem("luna-admin-token");
@@ -45,6 +47,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return (
       <div className="min-h-screen flex items-center justify-center bg-cream-50">
         <div className="text-gold text-sm">加载中...</div>
+      </div>
+    );
+  }
+
+  if (authFailed) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-cream-50 px-4">
+        <div className="text-center">
+          <div className="text-4xl mb-4">🔒</div>
+          <p className="text-sm text-wood mb-6">请先登录管理后台</p>
+          <Link href="/admin/login" className="btn-primary inline-block">
+            前往登录
+          </Link>
+        </div>
       </div>
     );
   }
